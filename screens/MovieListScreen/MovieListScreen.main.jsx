@@ -14,9 +14,9 @@ export default function MovieListScreen({ navigation, route }) {
   const [actors, setActors] = useState([]);
 
   // TODO: Fill out the methods below.
-  const selectedMovie = (movieItem) => {};
+  const selectedMovie = (movieItem) => {navigation.navigate("MovieDetails", { movieItem: movieItem });};
 
-  const selectedFilterButton = () => {navigation.navigate("Filter", {actor: actors});
+  const selectedFilterButton = () => {navigation.navigate("MovieFilter", { actor: actors });};
 
   useEffect(
     () => {
@@ -87,7 +87,7 @@ export default function MovieListScreen({ navigation, route }) {
       // TODO: Return a MovieCell, wrapped by a TouchableOpacity so we can handle taps.
       return (
         <TouchableOpacity
-          onPress={() => navigation.navigate("About This Movie", {item: item}) } >
+          onPress={() => navigation.navigate("MovieDetails", {item: item}) } >
           <MovieCell movieItem={item}/>
         </TouchableOpacity>)
     } else {
@@ -107,6 +107,7 @@ export default function MovieListScreen({ navigation, route }) {
         placeholder="Search"
         onChangeText={setSearch}
         value={search}
+        platform={"ios"}
       />
       {/* TODO: Add a FlatList: https://reactnative.dev/docs/flatlist */}
       <FlatList
@@ -117,4 +118,4 @@ export default function MovieListScreen({ navigation, route }) {
       />
     </SafeAreaView>
   );
-}}
+}

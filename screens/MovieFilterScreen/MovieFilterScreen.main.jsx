@@ -24,12 +24,11 @@ export default function MovieFilterScreen({ navigation, route }) {
     () => {
       // TODO: Recieve actors passed by MovieListScreen here, and update
       // our local state using setActors.
-      console.log(route.params.actors);
-      setActors(route.params.actors);
+      setActors(route.params.actor);
     },
     [
       /* TODO: Insert dependent variables here. */
-      route.params.actors
+      navigation
     ]
   );
 
@@ -44,7 +43,7 @@ export default function MovieFilterScreen({ navigation, route }) {
         headerRight: ()=> (
           <Button
             title="Done"
-            onPress={() => navigation.navigate("All Movies", { actors })
+            onPress={() => navigation.navigate("MovieList", { actors: actors })
             }
 
           />

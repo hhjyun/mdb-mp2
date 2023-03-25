@@ -12,7 +12,7 @@ export default function MovieDetailScreen({ route }) {
                 See the example on the spec for design inspiration.
                 Feel free to use the styles below. */}
           <Image 
-            style={styles.movieimage}
+            style={styles.movieCellImage}
             source={{uri: item.posterurl}}
           />
 
